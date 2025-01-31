@@ -4,7 +4,6 @@ set -e
 
 BIN_DIR=/usr/local/bin
 VERSION=1.0
-BIN_DIR=/tmp/bin
 
 if [ $# -eq 1 ]
 then
