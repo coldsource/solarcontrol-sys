@@ -3,6 +3,7 @@
 set -e
 
 # Install all required packages
+apt-get update -y
 apt-get install -y sudo build-essential cmake git mariadb-server libmariadb-dev mosquitto libmosquitto-dev libwebsockets-dev libcurl4-gnutls-dev nginx npm sassc
 
 # Configure mosquitto
