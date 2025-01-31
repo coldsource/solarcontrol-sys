@@ -18,8 +18,14 @@ groupadd --system solarcontrol
 useradd --system -g solarcontrol -d /home/solarcontrol solarcontrol
 chown solarcontrol:solarcontrol /home/solarcontrol
 
+# Core
 echo "solarcontrol ALL = (root) NOPASSWD: /usr/bin/mv /tmp/solarcontrol/build/solarcontrol /usr/local/bin/solarcontrol" >/etc/sudoers.d/solarcontrol
 echo "solarcontrol ALL = (root) NOPASSWD: /usr/bin/systemctl restart solarcontrol" >>/etc/sudoers.d/solarcontrol
+
+# Sys
+echo "solarcontrol ALL = (root) NOPASSWD: /usr/bin/mv /tmp/solarcontrol-sys/debian/upgrade-solarcontrol-sys.sh /usr/local/bin/upgrade-solarcontrol-sys.sh" >/etc/sudoers.d/solarcontrol
+echo "solarcontrol ALL = (root) NOPASSWD: /usr/bin/mv /tmp/solarcontrol-sys/debian/upgrade-solarcontrol-core.sh /usr/local/bin/upgrade-solarcontrol-core.sh" >/etc/sudoers.d/solarcontrol
+echo "solarcontrol ALL = (root) NOPASSWD: /usr/bin/mv /tmp/solarcontrol-sys/debian/upgrade-solarcontrol-front.sh /usr/local/bin/upgrade-solarcontrol-front.sh" >/etc/sudoers.d/solarcontrol
 
 # Prepare solarcontrol service
 cp solarcontrol.conf /etc
@@ -30,6 +36,7 @@ systemctl enable solarcontrol
 
 # Prepare solarcontrol-upgrade service
 cp upgrade-solarcontrol.sh /usr/local/bin
+cp upgrade-solarcontrol-sys.sh /usr/local/bin
 cp upgrade-solarcontrol-core.sh /usr/local/bin
 cp upgrade-solarcontrol-front.sh /usr/local/bin
 cp solarcontrol-upgrade.service /lib/systemd/system

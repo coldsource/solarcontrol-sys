@@ -2,8 +2,6 @@
 
 set -e
 
-BIN_DIR=/usr/local/bin
-
 if [ -f /var/www/html/version ]
 then
 	CUR_VERSION=$(head -n1 /var/www/html/version)

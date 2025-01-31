@@ -4,9 +4,9 @@ set -e
 
 BIN_DIR=/usr/local/bin
 
-if [ -f /usr/local/bin/solarcontrol ]
+if [ -f $BIN_DIR/solarcontrol ]
 then
-	CUR_VERSION=$(/usr/local/bin/solarcontrol --version)
+	CUR_VERSION=$($BIN_DIR/solarcontrol --version)
 else
 	CUR_VERSION=0
 fi
@@ -37,7 +37,7 @@ cmake ..
 make
 
 # Move binary
-sudo mv /tmp/solarcontrol/build/solarcontrol /usr/local/bin/solarcontrol
+sudo mv /tmp/solarcontrol/build/solarcontrol $BIN_DIR/solarcontrol
 
 # Restart service
 sudo /usr/bin/systemctl restart solarcontrol
