@@ -42,7 +42,7 @@ cd /tmp/solarcontrol-react/htdocs/css
 ln -s dist $LAST_VERSION
 
 cd /tmp/solarcontrol-react
-sed -i -e 's/\/dist\//\/1.11\//' htdocs/index.html
+sed -i -e "s/\/dist\//\/$LAST_VERSION\//" htdocs/index.html
 
 # Copy do dest
 rsync -rl htdocs/ /var/www/html
