@@ -34,7 +34,18 @@ npm run pack
 mkdir htdocs/css/dist
 sassc htdocs/css/src/main.scss htdocs/css/dist/main.css
 
-rsync -r htdocs/ /var/www/html
+# Cache killer
+cd /tmp/solarcontrol-react/htdocs/js
+ln -s dist $LAST_VERSION
+
+cd /tmp/solarcontrol-react/htdocs/css
+ln -s dist $LAST_VERSION
+
+cd /tmp/solarcontrol-react
+sed -i -e 's/\/dist\//\/1.11\//' htdocs/index.html
+
+# Copy do dest
+rsync -rl htdocs/ /var/www/html
 
 # Clean
 rm -rf /tmp/solarcontrol-react
