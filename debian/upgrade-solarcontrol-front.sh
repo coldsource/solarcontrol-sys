@@ -44,7 +44,7 @@ ln -s dist $LAST_VERSION
 cd /tmp/solarcontrol-react
 sed -i -e "s/\/dist\//\/$LAST_VERSION\//" htdocs/index.html
 
-# Copy do dest
+# Copy to dest
 rsync -rl htdocs/ /var/www/html
 
 # Clean
