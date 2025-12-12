@@ -39,6 +39,9 @@ make
 # Move binary
 sudo mv /tmp/solarcontrol/build/solarcontrol $BIN_DIR/solarcontrol
 
+# Upgrade database if needed
+$BIN_DIR/solarcontrol --config /etc/solarcontrol.conf --upgrade
+
 # Restart service
 sudo /usr/bin/systemctl restart solarcontrol
 
