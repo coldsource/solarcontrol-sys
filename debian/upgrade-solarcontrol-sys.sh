@@ -3,7 +3,7 @@
 set -e
 
 BIN_DIR=/usr/local/bin
-VERSION=1.2
+VERSION=1.3
 
 if [ $# -eq 1 ]
 then
